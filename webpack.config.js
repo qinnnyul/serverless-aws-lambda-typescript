@@ -4,7 +4,7 @@ var path = require('path');
 module.exports = {
     entry: './src/main/handler.ts',
     target: 'node',
-    // externals: ["aws-sdk"], // modules to be excluded from bundled file
+    externals: ["aws-sdk"], // modules to be excluded from bundled file
     resolve: {
         extensions: ['', '.ts', '.js', '.json'],
 
