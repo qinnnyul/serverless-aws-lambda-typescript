@@ -9,12 +9,17 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "declaration": false,
-    "listFiles": false
+    "listFiles": false,
+    "moduleResolution": "node",
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
   "exclude": [
     ".serverless",
     ".git",
-    "node_modules"
+    "node_modules",
+    "typings"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

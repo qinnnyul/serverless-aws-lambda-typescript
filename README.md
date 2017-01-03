@@ -1,11 +1,12 @@
-Install node.js packages and install Typings :
+Install node.js packages and install serverless:
 ```bash
 npm i
-typings i
+npm install -g serverless
 ```
 
+For unit test, lambda testing, please install the following package globally
 ```bash
-npm install -g lambda-local
+npm install -g lambda-local run-local-lambda karma
 ```
 
 To deploy use:

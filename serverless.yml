@@ -1,7 +1,7 @@
 service: serverless-aws-lambda-ts-examples
 
-s3:
-  bucket: serverless-aws-lambda-ts-examples-s3-bucket
+#s3:
+#  bucket: serverless-aws-lambda-ts-examples-s3-bucket
 
 provider:
   name: aws
@@ -21,9 +21,9 @@ provider:
 
 functions:
   serverlessAWSLambdaTS:
-    handler: dist/main/handler.handleIt
-    environment:
-      BUCKET: ${self:s3.bucket}
+    handler: bundle.handleIt
+#    environment:
+#      BUCKET: ${self:s3.bucket}
 
 #   you can add any of the following events
 #   events:

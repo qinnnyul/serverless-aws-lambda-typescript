@@ -3,16 +3,14 @@
   "version": "0.0.1",
   "description": "serverless-aws-lambda-typescript",
   "scripts": {
-    "install": "typings install",
-    "build": "rm -rf dist && tsc",
+    "build": "rm -rf dist && webpack --config webpack.config.js",
     "pretest": "npm run build",
     "test": "karma start karma.conf.js",
-    "deploy": "npm run build && serverless deploy",
-    "typings": "typings install",
+    "deploy": "serverless deploy",
     "lint": "tslint \"src/**/*.ts\" --force",
     "test:function": "serverless invoke --function serverlessAWSLambdaTS",
-    "test:runlocal": "npm run build && run-local-lambda --file dist/main/handler.js --handler handleIt --event eventExample.json --timeout 5000",
-    "test:local": "npm run build && lambda-local --function dist/main/handler.js --event eventExample.json --timeout 5"
+    "test:runlocal": "npm run build && run-local-lambda --file dist/bundle.js --handler handleIt --event mock-s3-event.json --timeout 5000",
+    "test:local": "npm run build && lambda-local --function dist/bundle.js --event mock-s3-event.json --timeout 5"
   },
   "dependencies": {
     "aws-sdk": "^2.5.5"
@@ -20,24 +18,26 @@
   "devDependencies": {
     "@types/aws-lambda": "0.0.5",
     "@types/aws-sdk": "0.0.40",
+    "@types/jasmine": "^2.5.40",
     "@types/node": "^4.0.0",
+    "awesome-typescript-loader": "^3.0.0-beta.17",
     "aws-lambda-local": "^1.0.14",
-    "aws-sdk-typescript": "0.0.3",
     "codelyzer": "0.0.28",
+    "copy-webpack-plugin": "^3.0.1",
     "jasmine-core": "^2.5.2",
+    "json-loader": "^0.5.4",
     "karma": "^1.3.0",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
+    "path": "^0.12.7",
     "run-local-lambda": "^1.1.1",
     "serverless-webpack": "^1.0.0-rc.3",
+    "string-replace-loader": "^1.0.3",
     "systemjs": "^0.19.41",
+    "ts-loader": "^0.8.2",
     "tslint": "^3.15.1",
     "typescript": "~2.0.3",
     "typings": "^1.3.3",
-    "copy-webpack-plugin": "^3.0.1",
-    "json-loader": "^0.5.4",
-    "path": "^0.12.7",
-    "string-replace-loader": "^1.0.3",
-    "ts-loader": "^0.8.2"
+    "webpack-loader": "0.0.1"
   }
 }
