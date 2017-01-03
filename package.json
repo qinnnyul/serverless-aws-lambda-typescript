@@ -4,7 +4,7 @@
   "description": "serverless-aws-lambda-typescript",
   "scripts": {
     "build": "rm -rf dist && webpack --config webpack.config.js",
-    "test": "tsc && jasmine",
+    "test": "tsc && jasmine JASMINE_CONFIG_PATH=jasmine.json",
     "deploy": "serverless deploy",
     "lint": "tslint \"src/**/*.ts\" --force",
     "test:function": "serverless invoke -f serverlessAWSLambdaTS --stage prod --path mock-s3-event.json --log",

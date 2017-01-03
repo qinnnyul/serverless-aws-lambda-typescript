@@ -9,11 +9,6 @@ For unit test, lambda testing, please install the following package globally
 npm install -g lambda-local jasmine
 ```
 
-For Unit test, please set JASMINE_CONFIG_PATH= Specify a relative or absolute path to your configuration file.
-```bash
-export JASMINE_CONFIG_PATH=/Users/ylqin/workspace/serverless-aws-lambda-typescript-examples/jasmine.json
-```
-
 To run unit test:
 ```bash
 npm run test
