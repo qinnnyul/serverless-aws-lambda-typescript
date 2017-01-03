@@ -1,0 +1,10 @@
+{
+  "dependencies": {},
+  "ambientDependencies": {},
+  "globalDependencies": {
+  },
+  "globalDevDependencies": {
+    "aws-sdk-typings": "github:stefh/aws-sdk-typescript#HEAD",
+    "jasmine": "registry:dt/jasmine#2.5.0+20161228223817"
+  }
+}
