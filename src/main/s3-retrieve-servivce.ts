@@ -3,10 +3,15 @@ import {S3} from "aws-sdk";
 
 export class S3RetrieveService {
 
-    getObject(bucket: string, objectKey: string) {
-        var s3 = new S3();
+    private s3Client: S3;
 
-        return s3.getObject({
+    constructor(s3Client: S3) {
+        this.s3Client = s3Client;
+    }
+
+    getObject(bucket: string, objectKey: string) {
+
+        return this.s3Client.getObject({
             Bucket: bucket,
             Key: objectKey
         });

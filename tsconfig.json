@@ -10,6 +10,7 @@
     "experimentalDecorators": true,
     "declaration": false,
     "listFiles": false,
+    "lib": ["es6", "dom"],
     "moduleResolution": "node",
     "typeRoots": [
       "./node_modules/@types"
