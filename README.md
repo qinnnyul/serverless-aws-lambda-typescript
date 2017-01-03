@@ -14,7 +14,25 @@ For Unit test, please set JASMINE_CONFIG_PATH= Specify a relative or absolute pa
 export JASMINE_CONFIG_PATH=/Users/ylqin/workspace/serverless-aws-lambda-typescript-examples/jasmine.json
 ```
 
+To run unit test:
+```bash
+npm run test
+```
+
+To run lambda function locally:
+```bash
+npm run test:local
+```
+
 To deploy use:
 ```bash
 npm run deploy
 ```
+
+To run post deployment test:
+```bash
+npm run test:function
+```
+
+
+
