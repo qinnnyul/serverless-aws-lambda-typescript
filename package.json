@@ -7,7 +7,7 @@
     "test": "tsc && jasmine JASMINE_CONFIG_PATH=jasmine.json",
     "deploy": "serverless deploy",
     "lint": "tslint \"src/**/*.ts\" --force",
-    "test:function": "serverless invoke -f serverlessAWSLambdaTS --stage prod --path mock-s3-event.json --log",
+    "test:function": "serverless invoke -f s3-event-proccessor --stage prod --path mock-s3-event.json --log",
     "test:local": "npm run build && lambda-local --function dist/bundle.js --event mock-s3-event.json --timeout 5"
   },
   "dependencies": {

@@ -12,7 +12,7 @@ export class ConfigLoader {
 
         var environment = this.context.invokedFunctionArn.replace(/.*:/g, '');
 
-        var config = require('../config/' + environment + '.js');
+        var config = require('../../config/' + environment + '.js');
 
         return config.environment;
     }

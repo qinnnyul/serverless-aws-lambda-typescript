@@ -1,4 +1,4 @@
-service: serverless-aws-lambda-ts-examples
+service: serverless-aws-lambda-demo
 
 #s3:
 #  bucket: serverless-aws-lambda-ts-examples-s3-bucket
@@ -20,7 +20,7 @@ provider:
 #  artifact: my-service-code.zip
 
 functions:
-  serverlessAWSLambdaTS:
+  s3-event-proccessor:
     handler: bundle.handleIt
 #    environment:
 #      BUCKET: ${self:s3.bucket}
