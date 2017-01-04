@@ -18,7 +18,7 @@ describe('should call s3 client to retrieve object', function () {
 
         var s3RetrieveService = new S3RetrieveService(s3);
 
-        var s3Object = s3RetrieveService.getObject("lambda-claudiajs-s3-demo","aws-nodejs-dev-hello.json");
+        var s3Object = s3RetrieveService.getObject("lambda-claudiajs-s3-demo", "aws-nodejs-dev-hello.json");
 
         var expectedResult = {
             "dbapi": "https://localhost:8888/dev/api"
