@@ -11,7 +11,7 @@ describe('s3 object retriever', function () {
         s3RetrieveService.getObject("fake bucket", "fake object key");
         //then
         expect(s3Client.getObject).toHaveBeenCalledTimes(1);
-    })
+    });
 
     it('should call the real s3 client to get object', function (done) {
         var s3 = new S3();

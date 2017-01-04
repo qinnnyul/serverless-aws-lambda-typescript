@@ -1,6 +1,8 @@
+import {S3Event} from "./model/S3Event";
+
 export class S3EventParser {
 
-    parse(lambdaEvent: any): any[] {
+    parse(lambdaEvent: any): S3Event[] {
         var result: any[] = [];
         var eventRecord = lambdaEvent.Records && lambdaEvent.Records[0];
 
