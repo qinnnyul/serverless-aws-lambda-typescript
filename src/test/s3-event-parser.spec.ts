@@ -1,6 +1,12 @@
 import {S3EventParser} from "../main/s3-event-parser";
 
 describe('s3 event parser', ()=> {
+    var classUnderTest: S3EventParser;
+
+    beforeEach(()=> {
+        classUnderTest = new S3EventParser();
+    });
+
     it('should parse s3 event from lambda event', ()=> {
         var lambdaEvent = {
             "Records": [
@@ -40,8 +46,7 @@ describe('s3 event parser', ()=> {
                 }
             ]
         };
-        var s3EventParser = new S3EventParser();
-        var result = s3EventParser.parse(lambdaEvent);
+        var result = classUnderTest.parse(lambdaEvent);
         expect(result[0].bucketName).toEqual("lambda-claudiajs-s3-demo");
         expect(result[0].objectKey).toEqual("aws-nodejs-dev-hello.json");
     });
@@ -85,9 +90,8 @@ describe('s3 event parser', ()=> {
                 }
             ]
         };
-        var s3EventParser = new S3EventParser();
         expect(function () {
-            s3EventParser.parse(lambdaEvent)
+            classUnderTest.parse(lambdaEvent)
         }).toThrow(new Error("Not support event type!!"));
     })
 

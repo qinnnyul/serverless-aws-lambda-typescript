@@ -5,6 +5,13 @@ import {S3} from "aws-sdk";
 
 
 describe('s3 event handler', () => {
+    var classUnderTest: S3EventHandler;
+    var mockS3EventParser: S3EventParser;
+
+    beforeEach(() => {
+        mockS3EventParser = new S3EventParser();
+    });
+
     it('should process s3 event successfully ', () => {
         var lambdaEvent = {
             "Records": [
@@ -44,13 +51,10 @@ describe('s3 event handler', () => {
                 }
             ]
         };
-        var mockS3EventParser = new S3EventParser();
-        var mockS3RetrieveService = new S3RetrieveService(new S3());
         var mockContext = jasmine.createSpyObj('mockContext', ['succeed']);
 
-        var s3EventHandler = new S3EventHandler(mockS3EventParser, mockS3RetrieveService);
-
-        s3EventHandler.process(lambdaEvent, mockContext);
+        classUnderTest = new S3EventHandler(mockS3EventParser, new S3RetrieveService(new S3()));
+        classUnderTest.process(lambdaEvent, mockContext);
 
         expect(mockContext.succeed).toHaveBeenCalledWith('Success: ' + JSON.stringify(lambdaEvent));
     });
@@ -77,14 +81,11 @@ describe('s3 event handler', () => {
                 }
             ]
         };
-
-        var mockS3EventParser = new S3EventParser();
-        var mockS3RetrieveService = jasmine.createSpyObj('mockS3RetrieveService', ['getObject']);
         var mockContext = jasmine.createSpyObj('mockContext', ['fail']);
+        var mockS3RetrieveService = jasmine.createSpyObj('mockS3RetrieveService', ['getObject']);
 
-        var s3EventHandler = new S3EventHandler(mockS3EventParser, mockS3RetrieveService);
-
-        s3EventHandler.process(snsEvent, mockContext);
+        classUnderTest = new S3EventHandler(mockS3EventParser, mockS3RetrieveService);
+        classUnderTest.process(snsEvent, mockContext);
 
         expect(mockContext.fail).toHaveBeenCalledWith('Error: Not support event type!!');
 
