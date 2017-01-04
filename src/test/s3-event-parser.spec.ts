@@ -1,7 +1,7 @@
 import {S3EventParser} from "../main/s3-event-parser";
 
-describe('s3 event parser', function () {
-    it('should parse s3 event from lambda event', function () {
+describe('s3 event parser', ()=> {
+    it('should parse s3 event from lambda event', ()=> {
         var lambdaEvent = {
             "Records": [
                 {
@@ -46,7 +46,7 @@ describe('s3 event parser', function () {
         expect(result[0].objectKey).toEqual("aws-nodejs-dev-hello.json");
     });
 
-    it('should throw out error when lambda event can not be parsed', function () {
+    it('should throw out error when lambda event can not be parsed', ()=> {
         var lambdaEvent = {
             "Records": [
                 {

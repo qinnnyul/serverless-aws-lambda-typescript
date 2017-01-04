@@ -1,8 +1,8 @@
 import {S3RetrieveService} from "../main/s3-retrieve-servivce";
 import {S3} from "aws-sdk";
 
-describe('s3 object retriever', function () {
-    it('should call s3client with relative parameters', function () {
+describe('s3 object retriever', ()=> {
+    it('should call s3client with relative parameters', ()=> {
         //given
         var s3Client = new S3();
         spyOn(s3Client, "getObject");
@@ -13,7 +13,7 @@ describe('s3 object retriever', function () {
         expect(s3Client.getObject).toHaveBeenCalledTimes(1);
     });
 
-    it('should call the real s3 client to get object', function (done) {
+    it('should call the real s3 client to get object', done=> {
         var s3 = new S3();
 
         var s3RetrieveService = new S3RetrieveService(s3);
