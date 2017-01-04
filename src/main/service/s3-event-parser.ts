@@ -1,4 +1,4 @@
-import {S3Event} from "./model/S3Event";
+import {S3Event} from "../model/S3Event";
 
 export class S3EventParser {
 

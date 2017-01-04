@@ -1,4 +1,4 @@
-import {ConfigLoader} from "../config/config-loader";
+import {ConfigLoader} from "../../main/service/config-loader";
 import {Context} from "aws-lambda";
 
 describe('config loader for different environments', () => {
@@ -19,7 +19,7 @@ describe('config loader for different environments', () => {
         var configLoader = new ConfigLoader(mockContext);
         var config = configLoader.load();
 
-        expect(config.environment.someAPI).toEqual("https://jsonplaceholder.typicode.com/posts");
+        expect(config.someAPI).toEqual("https://jsonplaceholder.typicode.com/posts");
     });
 
     it('should load conf for dev ', () => {
@@ -39,6 +39,6 @@ describe('config loader for different environments', () => {
         var configLoader = new ConfigLoader(mockContext);
         var config = configLoader.load();
 
-        expect(config.environment.someAPI).toEqual("https://jsonplaceholder.typicode.com/comments");
+        expect(config.someAPI).toEqual("https://jsonplaceholder.typicode.com/comments");
     });
 });

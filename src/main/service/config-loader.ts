@@ -8,9 +8,12 @@ export class ConfigLoader {
         this.context = context;
     }
 
-    public load() {
+    public load(): any {
+
         var environment = this.context.invokedFunctionArn.replace(/.*:/g, '');
 
-        return require('./' + environment + '.js');
+        var config = require('../config/' + environment + '.js');
+
+        return config.environment;
     }
 }

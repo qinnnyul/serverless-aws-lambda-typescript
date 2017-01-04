@@ -1,4 +1,4 @@
-import {S3RetrieveService} from "../main/s3-retrieve-servivce";
+import {S3RetrieveService} from "../../main/service/s3-retrieve-servivce";
 import {S3} from "aws-sdk";
 
 describe('s3 object retriever', ()=> {
