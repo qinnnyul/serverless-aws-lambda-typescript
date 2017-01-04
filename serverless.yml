@@ -1,4 +1,4 @@
-service: serverless-aws-lambda-demo
+service: serverless
 
 #s3:
 #  bucket: serverless-aws-lambda-ts-examples-s3-bucket
