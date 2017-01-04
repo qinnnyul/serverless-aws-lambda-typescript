@@ -6,7 +6,6 @@ export class DataStoreService {
     public saveDataWithAPI(data: string, api: any) {
 
         var options = {
-            protocol: api.protocol,
             hostname: api.hostname,
             port: api.port,
             path: api.path,
