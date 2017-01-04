@@ -44,7 +44,7 @@ describe('s3 event parser', function () {
         var result = s3EventParser.parse(lambdaEvent);
         expect(result[0].bucketName).toEqual("lambda-claudiajs-s3-demo");
         expect(result[0].objectKey).toEqual("aws-nodejs-dev-hello.json");
-    })
+    });
 
     it('should throw out error when lambda event can not be parsed', function () {
         var lambdaEvent = {
