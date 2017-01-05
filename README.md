@@ -1,3 +1,5 @@
+Build AWS LAMBDA function with serverless and typescript.
+
 Install node.js packages and install serverless:
 ```bash
 npm i
