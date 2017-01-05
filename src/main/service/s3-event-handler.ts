@@ -20,16 +20,17 @@ export class S3EventHandler {
 
     public process(lambdaEvent: any, context: Context) {
         try {
+            console.log("processing: " + JSON.stringify(lambdaEvent));
             var s3Events = this.s3EventParser.parse(lambdaEvent);
             var environment = this.configLoader.load();
+            var saveDataWithAPI = this.dataStoreService.saveDataWithAPI;
 
             for (var s3Event of s3Events) {
                 var s3Object = this.s3RetrieveService.getObject(s3Event.bucketName, s3Event.objectKey);
                 s3Object.promise().then(function (data) {
-                    this.dataStoreService.saveDataWithAPI(data.Body, environment.endpoint);
+                    saveDataWithAPI(data.Body.toString(), environment.endpoint);
                 });
             }
-            context.succeed('Success: ' + JSON.stringify(lambdaEvent));
         } catch (ex) {
             context.fail('Error: ' + ex.message);
         }
