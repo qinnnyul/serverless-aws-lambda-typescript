@@ -11,7 +11,7 @@ export class S3EventHandler {
     private configLoader: ConfigLoader;
 
 
-    constructor(s3EventParser: S3EventParser, s3RetrieveService: S3RetrieveService, dataStoreService: DataStoreService, configLoader: ConfigLoader) {
+    public constructor(s3EventParser: S3EventParser, s3RetrieveService: S3RetrieveService, dataStoreService: DataStoreService, configLoader: ConfigLoader) {
         this.s3EventParser = s3EventParser;
         this.s3RetrieveService = s3RetrieveService;
         this.dataStoreService = dataStoreService;

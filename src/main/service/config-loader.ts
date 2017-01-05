@@ -12,7 +12,13 @@ export class ConfigLoader {
 
         var environment = this.context.invokedFunctionArn.replace(/.*:/g, '');
 
-        var config = require('../../config/' + environment + '.js');
+        console.log("environment:" + environment);
+
+        if (environment.indexOf("serverless") == -1) {
+            environment = "serverless-local-s3-event-proccessor";
+        }
+
+        var config = require('../../config/' + environment);
 
         return config.environment;
     }

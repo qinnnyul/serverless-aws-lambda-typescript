@@ -41,4 +41,24 @@ describe('config loader for different environments', () => {
 
         expect(config.someAPI).toEqual("https://jsonplaceholder.typicode.com/comments");
     });
+
+    it('should load conf for local ', () => {
+        var mockContext: Context;
+
+        mockContext = <Context>{
+            callbackWaitsForEmptyEventLoop: false,
+            functionName: 'mock',
+            functionVersion: 'version',
+            invokedFunctionArn: 'bundle.js',
+            memoryLimitInMB: 128,
+            awsRequestId: 'mock',
+            logGroupName: 'mock',
+            logStreamName: 'mock'
+        };
+
+        var configLoader = new ConfigLoader(mockContext);
+        var config = configLoader.load();
+
+        expect(config.someAPI).toEqual("https://jsonplaceholder.typicode.com/comments");
+    });
 });
